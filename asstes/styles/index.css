@@ -1,3 +1,9 @@
+:root {
+  --item-color: #3D3D3D;
+  --white-color: rgba(255, 255, 255, 1);
+  --gray-color: rgba(255, 255, 255, 0.4);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,6 +11,8 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgba(41, 41, 41, 1);
+  font-family: Inter;
 }
 
 .container {
@@ -13,24 +21,93 @@ body {
   margin-left: auto;
 }
 
-.page-wrapper {
-  margin: 0;
-  padding: 0;
-  display: grid;
-
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
-  grid-template-areas: "w hero hero "
-    "d hero hero"
-    "e q h";
-
-  background-color: rgba(65, 61, 61, 0.836);
-}
-
-.page-wrapper .item1 {
-  background-color: aqua;
-}
-
 /* @media (width<1200px) {
 
 } */
+
+.grid {
+  margin: 93px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "weather hero hero"
+    "date hero hero"
+    "email quote feeling";
+  gap: 16px;
+  box-shadow: 0 0 2 0 rgba(0, 0, 0, 0.12);
+}
+
+.weather {
+  grid-area: weather;
+  display: flex;
+  border-radius: 16px;
+  background-color: var(--item-color);
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.weather h1 , .weather h2{
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+  color: var(--white-color);
+  background-color: blueviolet;
+}
+.foo{
+  background-color: aqua;
+  
+}
+
+/* .weather1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+.weather h1{
+  /* margin-top: -5px; */
+}
+
+.weather h2{
+  /* margin-bottom:  20px; */
+}
+
+.weather p {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--gray-color);
+  background-color: aliceblue;
+}
+
+.weather img {
+  background-color: beige;
+}
+
+.hero {
+  grid-area: hero;
+  background: lightblue;
+}
+
+.date {
+  grid-area: date;
+}
+
+.email {
+  grid-area: email;
+}
+
+.quote {
+  grid-area: quote;
+}
+
+.feeling {
+  grid-area: feeling;
+}
